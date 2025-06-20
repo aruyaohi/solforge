@@ -1,5 +1,5 @@
 [project]
-name = "self-driver-agent"
+name = "autopilot"
 version = "0.1.0"
 description = ""
 authors = [
@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [tool.poetry]
-packages = [{include = "self_driver_agent", from = "src"}]
+packages = [{include = "autopilot", from = "src"}]
 
 
 [tool.poetry.group.dev.dependencies]
