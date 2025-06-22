@@ -95,4 +95,4 @@ LangChain & LangGraph
 🧑‍💻 Author
 Aruya Emmanuel
 ✉️ omariontechnologies@gmail.com
-🐙 GitHub <!-- Replace with actual username -->
+🐙 GitHub: aruyaohi
