@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+    autopilot:
+      build:
+        context: . 
+        dockerfile: Dockerfile
+        target: builder
+      volumes:
+        - package_data:/root/.cache/pip 
+        - .:/app 
+      working_dir: /app # Sets the working directory inside the container
+      command: poetry run python -m src.autopilot.main # Your application's entry command
+      restart: "no"
+
+volumes:
+  package_data:
