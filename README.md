@@ -6,7 +6,7 @@ A self-driving car agent simulator that explores how large language models (LLMs
 
 ## 🧠 What is autopilot-agent?
 
-`autopilot-agent` is a backend simulation project that showcases how LLMs can guide self-driving car behavior through natural language commands and contextual reasoning. The agent can understand instructions like:
+`autopilot-agent` is an AI agent simulation project that showcases how LLMs can guide self-driving car behavior through natural language commands and contextual reasoning. The agent can understand instructions like:
 
 - “Follow the red car in front.”
 - “Drive to the nearest McDonald's so I can grab a bite.”
