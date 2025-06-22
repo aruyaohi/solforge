@@ -2,10 +2,11 @@ version: '3.8'
 
 services:
     autopilot:
-      build:
-        context: . 
-        dockerfile: Dockerfile
-        target: builder
+      # build:
+      #   context: . 
+      #   dockerfile: Dockerfile
+      #   target: builder
+      image: autopilot-agent
       volumes:
         - package_data:/root/.cache/pip 
         - .:/app 

@@ -13,7 +13,7 @@ if api_key:
     print(api_key)
 
 # Initialize LLM
-llm = ChatOpenAI(api_key=api_key, model="gpt-4-0613")
+llm = ChatOpenAI(api_key=api_key, model="gpt-4-13")
 
 # Define state shape
 class ChatState(TypedDict):
