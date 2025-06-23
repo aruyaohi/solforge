@@ -5,8 +5,7 @@ services:
       # build:
       #   context: . 
       #   dockerfile: Dockerfile
-      #   target: builder
-      image: autopilot-agent
+      image: autopilot-agent-autopilot
       volumes:
         - package_data:/root/.cache/pip 
         - .:/app 

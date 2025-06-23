@@ -1,42 +1,53 @@
-from typing import Annotated
-from typing_extensions import TypedDict
-from langgraph.graph import StateGraph
-from langgraph.graph.message import add_messages
-from dotenv import load_dotenv
 import os
-from langchain_openai import ChatOpenAI
+import requests
+from dotenv import load_dotenv
 
-# Load environment variable
+# --- Groq API Setup ---
 load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
-if api_key:
-    print(api_key)
+api_key = os.getenv("GROQ_API_KEY")
 
-# Initialize LLM
-llm = ChatOpenAI(api_key=api_key, model="gpt-4-13")
+if api_key is None:
+    print("Error: GROQ_API_KEY environment variable not set. Please set it in your .env file or environment.")
+    exit(1) # Exit if API key is missing
 
-# Define state shape
-class ChatState(TypedDict):
-    messages: Annotated[list, add_messages]
+print("Groq API Key loaded.")
 
-# Define simple chat function
-def simple_chat(state: ChatState) -> ChatState:
-    # Upon research it has become aparent to me that docstrings are very important, so i'll add one.
-    """This is a node that adds """
-    response = llm.invoke(state["messages"])
-    return {"messages": [response]}
+# write call function
+def call_groq_llama3(prompt):
+    url = "https://api.groq.com/openai/v1/chat/completions"
 
-# Build the graph
-builder = StateGraph(ChatState) # so basically here we are instantiating the state graph object.
-builder.add_node("chat", simple_chat)
-builder.set_entry_point("chat")
-builder.set_finish_point("chat")
-graph = builder.compile()
 
-# Run it
-if __name__ == "__main__":
-    initial_state = {
-        "messages": [{"role": "user", "content": "Hello! What is LangGraph?"}]
+    headers = {
+    "Authorization": f"Bearer {api_key}",
+    "Content-Type": "application/json"  
     }
-    result = graph.invoke(initial_state)
-    print(result["messages"][-1]["content"])
+
+# --- Groq API Interaction (Example: Get a joke from LLM) ---
+    groq_payload = {
+    "model": "llama-3.1-8b-instant", # Using llama-3.1 as it's the latest in Groq
+    "messages": [
+        {"role": "system", "content" : 
+         ( "You're a solidity expert. Only return valid Solidity code."
+            "Do not include any explanation. Use OpenZeppelin where needed."
+            "Ensure the code compiles and includes comments. also make sure the code follows due regulations and good practice"                                
+        )},
+        {"role": "user", "content": prompt}
+        ],
+    "temperature": 0.2,
+    }
+
+    print("\n--- Sending request to Groq API ---")
+    groq_response = requests.post(url, headers=headers, json=groq_payload)
+
+    if groq_response.status_code == 200:
+        groq_result = groq_response.json()
+        llm_response_content = groq_result["choices"][0]["message"]["content"]
+        print(f"LLM Response: {llm_response_content}")
+    else:
+        print(f"Error from Groq API: {groq_response.status_code} - {groq_response.text}")
+        llm_response_content = "LLM interaction failed."
+
+if __name__ == "__main__":
+    user_input = "Write a smart contract for a basic ERC220 token named HackathonToken with 1 million supply."
+    solidity_code = call_groq_llama3(user_input)
+    print(solidity_code)
