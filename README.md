@@ -1,50 +1,41 @@
-# 🚗 autopilot-agent
+# 🔨 Solsmith
 
-A self-driving car agent simulator that explores how large language models (LLMs), specifically OpenAI’s GPT models, can be leveraged to take agentic actions in the context of autonomous driving.
-
----
-
-## 🧠 What is autopilot-agent?
-
-`autopilot-agent` is an AI agent simulation project that showcases how LLMs can guide self-driving car behavior through natural language commands and contextual reasoning. The agent can understand instructions like:
-
-- “Follow the red car in front.”
-- “Drive to the nearest McDonald's so I can grab a bite.”
-- “Place an order for pizza as we head home and ensure it's delivered in 5 minutes.”
-
-Future versions will expand on this to support even more personalized, multi-step actions during simulated drives.
-
-This project is ideal for developers and AI enthusiasts looking to explore AI agents and autonomous vehicle simulations.
+**Solsmith** is an intelligent, prompt-based UI for generating Solana smart contracts using natural language. It pairs a powerful LLM backend (`solforge-agent`) with a modern web-based Rust IDE built with Monaco, React, Vite, and Tailwind CSS.
 
 ---
 
-## ⚙️ Technologies & Packages Used
+## ✨ Features
 
-- Python 3.11
-- [LangGraph](https://github.com/langchain-ai/langgraph)
-- [LangChain](https://www.langchain.com/)
-- [LangChain OpenAI](https://github.com/langchain-ai/langchain/tree/master/libs/langchain-openai)
-- [OpenAI Python SDK](https://github.com/openai/openai-python)
-- [Waymo Waymax](https://github.com/waymo-research/waymax) – for car simulation
-- Python Dotenv
-- Docker + Docker Compose
-- Poetry (for dependency and environment management)
+- 🧠 **Prompt-to-Code Smart Contract Generation**  
+  Generate Rust-based Solana smart contracts (via Anchor) directly from prompts.
+
+- 🦀 **Solana & Anchor Support**  
+  All generated contracts follow Anchor framework conventions and are ready for local build/test.
+
+- 🖥️ **Rust Code Editor (Monaco)**  
+  Embedded Monaco editor with Rust highlighting, formatting, and real-time editing.
+
+- 📦 **Modular LLM Backend**  
+  Uses a dedicated agent container (`solforge-agent`) for LLM prompt orchestration.
+
+- ⚡ **Fast & Modern UI**  
+  Built with Vite, React, TypeScript, and Tailwind CSS.
 
 ---
 
-## 📁 Project 
+## 🧠 Example Prompts
 
-autopilot-agent/
-│
-├── src/
-│ └── autopilot/
-│ └── main.py # Main entry point
-│
-├── .env # Environment variables
-├── pyproject.toml # Poetry config
-├── Dockerfile
-├── docker-compose.yml
-└── README.md
+> “Create a staking pool where users deposit SPL tokens and earn rewards over time.”
+
+> “Generate an SPL token mint contract with an admin authority.”
+
+> “Build a vesting schedule for locked tokens using Anchor.”
+
+---
+
+## 📁 Project Structure
+
+
 
 
 ### Prerequisites
