@@ -1,93 +1,110 @@
 # 🔨 Solsmith
 
-**Solsmith** is an intelligent, prompt-based UI for generating Solana smart contracts using natural language. It pairs a powerful LLM backend (`solforge-agent`) with a modern web-based Rust IDE built with Monaco, React, Vite, and Tailwind CSS.
+**Solsmith** is an AI-powered no-code platform that transforms natural language prompts into production-ready **Solana smart contracts**. It combines a powerful LLM backend (`solsmith-agent`) with a sleek, Monaco-powered in-browser IDE built using **Vite**, **React**, **TypeScript**, and **Tailwind CSS**.
 
 ---
 
 ## ✨ Features
 
 - 🧠 **Prompt-to-Code Smart Contract Generation**  
-  Generate Rust-based Solana smart contracts (via Anchor) directly from prompts.
+  Generate secure Solana (Anchor-based) smart contracts from natural language prompts.
 
-- 🦀 **Solana & Anchor Support**  
-  All generated contracts follow Anchor framework conventions and are ready for local build/test.
+- ⚓ **Anchor Framework Compatibility**  
+  All generated contracts follow Solana’s Anchor framework conventions.
 
-- 🖥️ **Rust Code Editor (Monaco)**  
-  Embedded Monaco editor with Rust highlighting, formatting, and real-time editing.
+- 🖥️ **Built-in Rust IDE**  
+  Integrated Monaco editor with syntax highlighting, real-time editing, and code formatting.
 
-- 📦 **Modular LLM Backend**  
-  Uses a dedicated agent container (`solforge-agent`) for LLM prompt orchestration.
+- ⚡ **Modern UI Stack**  
+  Built with Vite, React, Tailwind CSS, and TypeScript for optimal developer experience.
 
-- ⚡ **Fast & Modern UI**  
-  Built with Vite, React, TypeScript, and Tailwind CSS.
+- 🧩 **Modular Architecture**  
+  Clean separation between AI backend (`solsmith-agent`) and frontend UI (`UI/solsmith`).
 
 ---
 
-## 🧠 Example Prompts
+## 💬 Example Prompts
 
-> “Create a staking pool where users deposit SPL tokens and earn rewards over time.”
-
-> “Generate an SPL token mint contract with an admin authority.”
-
-> “Build a vesting schedule for locked tokens using Anchor.”
+> “Create a staking pool where users deposit SPL tokens and earn rewards over time.”  
+> “Generate an SPL token mint contract with admin authority.”  
+> “Build a vesting schedule for locked tokens using Anchor.”  
 
 ---
 
 ## 📁 Project Structure
 
+solsmith/
+├── solsmith-agent/ # 🧠 LLM-powered backend
+│ ├── src/
+│ │ └── solsmith/
+│ │ └── main.py # Main entry point for backend logic
+│ ├── Dockerfile # Dockerfile for backend container
+│ ├── pyproject.toml # Poetry-managed Python dependencies
+│ ├── poetry.lock # Lockfile for consistent installs
+│ └── .env # (gitignored) Secrets like GROQ_API_KEY
 
+├── UI/ # 🎨 Frontend container
+│ └── solsmith/
+│ ├── src/
+│ │ ├── components/ # Shared React components
+│ │ ├── pages/ # Route-based views
+│ │ ├── assets/ # Static assets
+│ │ └── main.tsx # Vite entry point
+│ ├── public/ # Static HTML and assets
+│ ├── tailwind.config.js # TailwindCSS config
+│ ├── postcss.config.js # PostCSS config
+│ ├── index.html # Main HTML template
+│ ├── Dockerfile # Dockerfile for frontend
+│ ├── tsconfig.json # TypeScript config
+│ └── package.json # NPM dependencies and scripts
 
+└── docker-compose.yml # 🔁 Optional: Dev orchestration for both containers
 
-### Prerequisites
+yaml
+Copy
+Edit
+
+---
+
+## 🚀 Getting Started
+
+### 📦 Prerequisites
 
 - Python 3.11+
 - [Poetry](https://python-poetry.org/)
 - Docker & Docker Compose
+- Node.js (for frontend dev without Docker)
 
-### Running the App
-
-To build and start the containerized app:
+### 🐳 Running with Docker
 
 ```bash
 docker compose up --build
+This will build and run both the solsmith-agent backend and the UI/solsmith frontend containers.
 
+🛣 Roadmap
+🔊 Voice input for prompt-based contract generation
 
+💡 Real-time contract linting and audit recommendations
 
-# Features
-🔄 Natural language-based driving commands
+🧪 Local Anchor testing & deployment simulation
 
-🚘 Integration with Waymo’s waymax for realistic car simulation
+📁 Contract history, versioning & export options
 
-🧠 Use of LLMs for reasoning and decision-making
-
-🧩 Agentic design using LangGraph and LangChain
-
-⚙️ Modular backend structure for future extensibility
-
-# 🛠️ Future Plans
-Add voice interface for real-time command input
-
-Build a frontend dashboard to visualize car movements
-
-Add more complex decision-making scenarios
-
-Integrate map APIs for real-world routing
+🪪 Web3 wallet integration for secure contract deployment
 
 📜 License
 MIT License
 
 🙏 Acknowledgements
-OpenAI
+GROQ API
 
-Waymo Research
+Anchor
 
-LangChain & LangGraph
+[OpenAI API (optional fallback)]
 
-🧑‍💻 Author
+Monaco Editor
+
+👨‍💻 Author
 Aruya Emmanuel
-✉️ omariontechnologies@gmail.com
-<<<<<<< HEAD
+📧 omariontechnologies@gmail.com
 🐙 GitHub: aruyaohi
-=======
-🐙 GitHub <!-- Replace with actual username -->
->>>>>>> 8bc85336114456fd71599d2c4b121e45ea708fec

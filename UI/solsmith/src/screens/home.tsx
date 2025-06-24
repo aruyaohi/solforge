@@ -62,7 +62,7 @@ export default function Home() {
       </div>
 
       {/* Navigation */}
-      <nav className="relative z-10 w-full bg-gray-850 border-b border-gray-700">
+      <nav className="relative z-10 w-full bg-gray-850">
         <div className="max-w-full mx-auto  sm:px-6 lg:px-20">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
@@ -72,11 +72,6 @@ export default function Home() {
               <span className="text-xl font-bold text-orange-400">
                 SolSmith
               </span>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#" className="text-gray-300 hover:text-orange-400 transition-colors">Features</a>
-              <a href="#" className="text-gray-300 hover:text-orange-400 transition-colors">Docs</a>
-              <a href="#" className="text-gray-300 hover:text-orange-400 transition-colors">Pricing</a>
             </div>
             <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md transition-colors">
               Get Started
